@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jay Leone — Enterprise Technology Leader</title>
+<meta name="description" content="Jay Leone. Enterprise seller. AI-native builder. Based in California." />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Depth & surfaces */
+    --bg-base: #0a0a0a;
+    --bg-raised: #141414;
+    --bg-elevated: #1a1a1a;
+    --bg-inset: #080808;
+
+    /* Text hierarchy */
+    --text-primary: #f5f2ec;
+    --text-secondary: #b8b4aa;
+    --text-muted: #6e6a62;
+    --text-dim: #4a4640;
+
+    /* Rules & borders */
+    --rule: #262624;
+    --rule-strong: #333330;
+
+    /* Accents */
+    --accent: #e8a863;        /* warm amber — primary */
+    --accent-bright: #f5b878; /* hover / emphasis */
+    --accent-dim: rgba(232, 168, 99, 0.12);
+    --accent-soft: rgba(232, 168, 99, 0.25);
+
+    --cool: #7aa7d9;          /* soft blue — secondary accent */
+    --cool-dim: rgba(122, 167, 217, 0.12);
+
+    /* Fonts */
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter Tight', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Menlo', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; background: var(--bg-base); }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Ambient gradient glow — subtle depth, not distracting */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 600px at 85% 10%, rgba(232, 168, 99, 0.04), transparent 60%),
+      radial-gradient(ellipse 1000px 800px at 10% 90%, rgba(122, 167, 217, 0.03), transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Subtle noise layer for texture */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 25% 35%, rgba(255,255,255,0.012) 0px, transparent 1px),
+      radial-gradient(circle at 65% 75%, rgba(255,255,255,0.008) 0px, transparent 1px);
+    background-size: 4px 4px, 6px 6px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--rule); background: rgba(10, 10, 10, 0.88); }
+
+  .nav-logo {
+    font-family: var(--serif); font-weight: 500; font-size: 1.3rem;
+    letter-spacing: -0.02em; font-style: italic;
+    color: var(--text-primary);
+  }
+
+  .nav-links {
+    display: flex; gap: 2.25rem;
+    font-family: var(--mono); font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .nav-links a {
+    position: relative; padding: 0.25rem 0;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 1px; background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh; padding: 10rem 3rem 6rem;
+    position: relative; display: grid; grid-template-columns: 1fr;
+    align-items: center; max-width: 1400px; margin: 0 auto; z-index: 2;
+  }
+
+  .hero-meta {
+    font-family: var(--mono); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--text-muted); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-meta::before {
+    content: ''; width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-weight: 400; line-height: 0.95; letter-spacing: -0.035em;
+    margin-bottom: 2.5rem; max-width: 16ch;
+    color: var(--text-primary);
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--accent); font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 1.25rem; max-width: 42ch;
+    color: var(--text-secondary);
+    line-height: 1.55; font-weight: 400;
+  }
+  .hero-sub strong { color: var(--text-primary); font-weight: 500; }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; right: 3rem;
+    font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--text-muted);
+    writing-mode: vertical-rl; transform: rotate(180deg);
+  }
+
+  /* ---------- SECTION STRUCTURE ---------- */
+  section {
+    padding: 7rem 3rem; max-width: 1400px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+
+  .section-label {
+    font-family: var(--mono); font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--text-muted); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: ''; width: 24px; height: 1px; background: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    font-weight: 400; line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 3.5rem; max-width: 20ch;
+    color: var(--text-primary);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ---------- ABOUT ---------- */
+  .about { border-top: 1px solid var(--rule); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .about-body p {
+    font-size: 1.1rem; margin-bottom: 1.5rem;
+    color: var(--text-secondary); line-height: 1.65;
+  }
+
+  .about-body p:first-child {
+    font-size: 1.3rem; color: var(--text-primary);
+    font-family: var(--serif); font-weight: 400;
+    line-height: 1.45; letter-spacing: -0.01em;
+  }
+
+  .about-body p:first-child::first-letter {
+    font-size: 3.5rem; font-weight: 500;
+    float: left; line-height: 0.9;
+    padding: 0.5rem 0.6rem 0 0;
+    color: var(--accent); font-style: italic;
+  }
+
+  .about-body em { color: var(--text-primary); font-style: italic; }
+
+  /* ---------- PRACTICE ---------- */
+  .practice { border-top: 1px solid var(--rule); }
+
+  .practice-intro {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; margin-bottom: 5rem; align-items: start;
+  }
+
+  .practice-intro p {
+    font-size: 1.05rem; color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .practice-intro p:last-child { margin-bottom: 0; }
+
+  .practice-stats {
+    display: flex; flex-direction: column; gap: 1.5rem;
+    padding-left: 2rem; border-left: 1px solid var(--rule);
+  }
+
+  .stat-line {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 0.82rem;
+    padding-bottom: 1rem; border-bottom: 1px dashed var(--rule);
+  }
+  .stat-line:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .stat-label {
+    text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);
+  }
+  .stat-value {
+    font-family: var(--serif); font-size: 1.4rem;
+    color: var(--accent); font-weight: 500;
+  }
+
+  /* ---------- FEATURED CASE STUDY ---------- */
+  .featured-case {
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    padding: 3.5rem; margin-bottom: 3rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .featured-case:hover { border-color: var(--rule-strong); }
+  .featured-case::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent), rgba(232, 168, 99, 0.3));
+  }
+
+  .featured-badge {
+    display: inline-block;
+    font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-soft);
+    padding: 0.35rem 0.75rem; border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-title {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 500; letter-spacing: -0.02em;
+    margin-bottom: 0.5rem; line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  .featured-context {
+    font-family: var(--mono); font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-muted); margin-bottom: 2rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .featured-context span { position: relative; padding-right: 1rem; }
+  .featured-context span:not(:last-child)::after {
+    content: '·'; position: absolute; right: 0; color: var(--rule-strong);
+  }
+
+  /* SCREENSHOT GALLERY */
+  .screenshot-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin: 1rem 0 2.5rem; padding: 2.25rem 1rem;
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 50%, rgba(232, 168, 99, 0.05), transparent 70%),
+      var(--bg-inset);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .phone-frame {
+    position: relative;
+    padding: 8px;
+    background: linear-gradient(145deg, #2a2a28, #1a1a18);
+    border-radius: 28px;
+    border: 1px solid var(--rule-strong);
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  }
+  .phone-frame:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 16px 60px rgba(0, 0, 0, 0.6),
+      0 4px 12px rgba(232, 168, 99, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  .phone-frame img {
+    display: block; width: 100%; height: auto;
+    border-radius: 20px;
+  }
+  .phone-caption {
+    font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--text-muted); text-align: center;
+    margin-top: 1rem;
+  }
+  .phone-caption strong {
+    color: var(--accent); font-weight: 500;
+    display: block; margin-bottom: 0.2rem; font-size: 0.72rem;
+  }
+
+  .featured-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr;
+    gap: 3rem; margin-top: 2rem;
+  }
+
+  .featured-body h4 {
+    font-family: var(--mono); font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.75rem; margin-top: 1.75rem;
+  }
+  .featured-body h4:first-child { margin-top: 0; }
+
+  .featured-body p {
+    color: var(--text-secondary); margin-bottom: 1rem;
+    font-size: 1rem; line-height: 1.65;
+  }
+  .featured-body p:last-child { margin-bottom: 0; }
+  .featured-body strong { color: var(--text-primary); font-weight: 500; }
+  .featured-body em { color: var(--text-primary); font-style: italic; }
+  .featured-body a {
+    color: var(--cool);
+    border-bottom: 1px dotted var(--cool);
+  }
+  .featured-body a:hover { border-bottom-style: solid; }
+  .featured-body code {
+    font-family: var(--mono); font-size: 0.9em;
+    background: var(--bg-elevated);
+    border: 1px solid var(--rule);
+    padding: 0.1em 0.45em;
+    border-radius: 3px;
+    color: var(--accent-bright);
+  }
+
+  .featured-sidebar {
+    background: var(--bg-inset);
+    border: 1px solid var(--rule);
+    padding: 1.75rem; align-self: start;
+  }
+
+  .sidebar-section { margin-bottom: 1.75rem; }
+  .sidebar-section:last-child { margin-bottom: 0; }
+
+  .sidebar-section h5 {
+    font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-list { list-style: none; padding: 0; }
+  .sidebar-list li {
+    font-family: var(--mono); font-size: 0.82rem;
+    color: var(--text-secondary); padding: 0.3rem 0; line-height: 1.4;
+  }
+  .sidebar-list li::first-letter { color: var(--accent); }
+
+  .featured-takeaway {
+    margin-top: 2.5rem; padding: 1.75rem 2rem;
+    background:
+      linear-gradient(135deg, rgba(232, 168, 99, 0.05), transparent 70%),
+      var(--bg-inset);
+    border-left: 3px solid var(--accent);
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.1rem; line-height: 1.55;
+    color: var(--text-primary);
+  }
+
+  .featured-takeaway strong {
+    font-family: var(--sans); font-style: normal; font-weight: 500;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent); display: block; margin-bottom: 0.75rem;
+  }
+  .featured-takeaway em { color: var(--accent); font-style: italic; }
+
+  .live-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-left: 0.5rem; padding: 0.2rem 0.6rem;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-soft) !important;
+    border-radius: 2px;
+    color: var(--accent) !important;
+    font-family: var(--mono); font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    transition: background 0.2s ease;
+  }
+  .live-link:hover { background: var(--accent-soft); }
+
+  /* ---------- APP CARDS ---------- */
+  .apps-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+  }
+
+  .app-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    padding: 2.5rem; position: relative;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, background 0.3s;
+    overflow: hidden;
+  }
+  .app-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-soft);
+    background: var(--bg-elevated);
+  }
+  .app-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 2px; height: 0; background: var(--accent);
+    transition: height 0.4s ease;
+  }
+  .app-card:hover::before { height: 100%; }
+
+  .app-number {
+    font-family: var(--mono); font-size: 0.72rem;
+    color: var(--text-muted); letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+
+  .app-title {
+    font-family: var(--serif); font-size: 1.65rem; font-weight: 500;
+    letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.15;
+    color: var(--text-primary);
+  }
+
+  .app-context {
+    font-family: var(--mono); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent); margin-bottom: 1.5rem;
+  }
+
+  .app-desc {
+    color: var(--text-secondary); font-size: 0.95rem;
+    margin-bottom: 1.75rem; line-height: 1.6;
+  }
+  .app-desc em { color: var(--text-muted); }
+
+  .app-takeaway {
+    padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    font-family: var(--serif); font-style: italic;
+    font-size: 0.98rem; color: var(--text-primary); line-height: 1.5;
+  }
+  .app-takeaway::before {
+    content: '→ '; color: var(--accent);
+    font-style: normal; font-weight: 500;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .experience { border-top: 1px solid var(--rule); }
+  .exp-list { display: flex; flex-direction: column; }
+
+  .exp-row {
+    display: grid; grid-template-columns: 120px 1fr 1fr;
+    gap: 3rem; padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline; transition: padding-left 0.3s ease;
+  }
+  .exp-row:hover { padding-left: 1rem; }
+
+  .exp-year {
+    font-family: var(--mono); font-size: 0.82rem;
+    color: var(--accent); letter-spacing: 0.05em;
+  }
+
+  .exp-role {
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  .exp-company {
+    display: block; font-family: var(--sans);
+    font-size: 0.9rem; font-weight: 400; color: var(--text-muted);
+    margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  .exp-note {
+    color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;
+  }
+  .exp-note em { color: var(--text-muted); font-style: italic; }
+
+  /* ---------- EXPERTISE ---------- */
+  .expertise { border-top: 1px solid var(--rule); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+
+  .expertise-item { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .expertise-number {
+    font-family: var(--serif); font-size: 2.5rem; font-style: italic;
+    color: var(--accent); line-height: 1; margin-bottom: 0.5rem;
+  }
+
+  .expertise-title {
+    font-family: var(--serif); font-size: 1.3rem; font-weight: 500;
+    letter-spacing: -0.01em; margin-bottom: 0.25rem;
+    color: var(--text-primary);
+  }
+
+  .expertise-desc {
+    color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    border-top: 1px solid var(--rule);
+    padding: 9rem 3rem; text-align: left;
+    max-width: 1400px; margin: 0 auto;
+  }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400; line-height: 1; letter-spacing: -0.03em;
+    margin-bottom: 2rem; max-width: 14ch;
+    color: var(--text-primary);
+  }
+  .contact-title em { font-style: italic; color: var(--accent); }
+
+  .contact p { color: var(--text-secondary); }
+
+  .contact-links {
+    display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2rem;
+  }
+
+  .contact-link {
+    font-family: var(--mono); font-size: 0.88rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    padding-bottom: 0.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  .contact-link:hover {
+    color: var(--accent); border-bottom-color: var(--accent);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 3rem; max-width: 1400px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero, section, .contact, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .hero { padding-top: 7rem; padding-bottom: 3rem; }
+    section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .about-grid, .practice-intro, .expertise-grid, .apps-grid, .featured-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .practice-stats { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 2rem; }
+    .featured-case { padding: 2rem; }
+    .screenshot-gallery { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem 1rem; }
+    .phone-frame { max-width: 280px; margin: 0 auto; }
+    .exp-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
+    .exp-year { font-size: 0.75rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .hero h1 { animation: fadeUp 1.1s ease forwards; opacity: 0; }
+  .hero-meta { animation: fadeUp 0.9s ease 0.1s forwards; opacity: 0; }
+  .hero-sub { animation: fadeUp 1s ease 0.3s forwards; opacity: 0; }
+  .hero-scroll { animation: fadeUp 1s ease 0.6s forwards; opacity: 0; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Selection */
+  ::selection { background: var(--accent-soft); color: var(--text-primary); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">Jay Leone</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#practice">Practice</a>
+    <a href="#experience">Experience</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#contact">Connect</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="hero-meta">Enterprise Sales · AI-Native Builder · California</div>
+    <h1>Selling what I <em>can build</em>. Building what I want to <em>sell</em>.</h1>
+    <p class="hero-sub">
+      I lead enterprise sales at <strong>ExaGrid</strong>. On nights and weekends,
+      I ship functional AI-native applications — for my work, for my family, for myself.
+      The two habits reinforce each other.
+    </p>
+  </div>
+  <div class="hero-scroll">Scroll ↓</div>
+</header>
+
+<section class="about reveal" id="about">
+  <div class="section-label">01 — About</div>
+  <h2 class="section-title">An enterprise seller who <em>actually builds</em>.</h2>
+  <div class="about-grid">
+    <div></div>
+    <div class="about-body">
+      <p>
+        Most sellers talk about AI. Fewer have shipped six working applications with it this year.
+        I'm in the second camp — not because I'm becoming an engineer, but because building is the
+        fastest way I know to understand what's actually possible in a customer's environment.
+      </p>
+      <p>
+        My day job is closing complex infrastructure deals at ExaGrid, where I work with
+        California state agencies and large enterprise accounts on tiered storage and data
+        protection strategy. My after-hours work is shipping small, useful software — a sales
+        intelligence dashboard, a workout tracker, a road-trip companion app for my family,
+        a note-taking tool. Different domains; same instinct: see a real problem, build something
+        that addresses it, ship it.
+      </p>
+      <p>
+        The point isn't the apps. The point is what they prove about how fast the gap has
+        closed between <em>seeing a problem</em> and <em>having a working solution</em>.
+        Understanding that shift first-hand is — increasingly — the job.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="practice reveal" id="practice">
+  <div class="section-label">02 — Practice</div>
+  <h2 class="section-title">How I work <em>with AI</em>, every day.</h2>
+
+  <div class="practice-intro">
+    <div>
+      <p>
+        I use AI the way a carpenter uses power tools — constantly, competently, and without
+        ceremony. Claude, Claude Code, and Cursor are open most hours of most days. I use them
+        to draft customer communications, research accounts, model deal strategy, and build the
+        pieces of software that used to be impossible for someone in my role to build alone.
+      </p>
+      <p>
+        What's changed is the last part. The work below isn't demos. It's working tools I
+        actually use — each solving a problem I had and couldn't wait for someone else to solve.
+      </p>
+    </div>
+    <div class="practice-stats">
+      <div class="stat-line">
+        <span class="stat-label">Apps shipped</span>
+        <span class="stat-value">6+</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-label">Stack</span>
+        <span class="stat-value" style="font-size: 0.95rem; font-family: var(--mono);">Claude · Cursor · HTML/JS</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-label">Approach</span>
+        <span class="stat-value" style="font-size: 0.95rem; font-family: var(--mono);">Ship · Learn · Iterate</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-label">Since</span>
+        <span class="stat-value">2024</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY 01: CA PROCUREMENT -->
+  <article class="featured-case">
+    <div class="featured-badge">◆ Case Study 01</div>
+    <h3 class="featured-title">Public-Sector Procurement Intelligence Dashboard</h3>
+    <div class="featured-context">
+      <span>Enterprise Sales Tool</span>
+      <span>HTML / JS / PowerShell</span>
+      <span>~450 records mapped</span>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-body">
+        <h4>The problem</h4>
+        <p>
+          California publishes state-agency procurement data, but it lives scattered across
+          separate spreadsheets — one per vendor, with inconsistent schemas, mixed statuses,
+          and no way to see the same department's buying pattern across competitors. For a
+          seller working that territory, the data was technically public and practically unusable.
+        </p>
+
+        <h4>What I built</h4>
+        <p>
+          A single-page dashboard that ingests four competitor spreadsheets, normalizes them
+          into a unified JSON dataset, and renders a live filterable view of the combined market.
+          <strong>Keyword search</strong> across items, suppliers, buyers, departments, and POs.
+          <strong>Faceted filters</strong> for source, status, department, and supplier.
+          <strong>Live summary metrics</strong> for spend, deal size, and active/closed mix.
+          <strong>Rollup panels</strong> for top suppliers, top departments, and source distribution.
+        </p>
+
+        <h4>The interesting part</h4>
+        <p>
+          The dashboard was the easy half. The harder problem was turning data into action — so
+          I layered an <strong>intelligence engine</strong> on top: a curated lifecycle dataset
+          of product SKUs with end-of-support dates, confidence tiers, and source URLs.
+          Past-EOS hardware now surfaces automatically as the top prospecting angle, with
+          specific model names, PO counts, and dates — and the tool exports a <strong>ready-to-use
+          briefing document</strong> in Markdown or styled HTML that feeds directly into Claude
+          for draft emails, partner briefs, and account strategy.
+        </p>
+
+        <h4>The AI-native piece</h4>
+        <p>
+          This is where the tool stops being a dashboard and starts being a genuine force
+          multiplier. The brief export is designed as a <em>prompt payload</em> — structured
+          so I can paste it into Claude with one line of intent ("draft a prospecting email to
+          this buyer") and get a useful first draft in seconds. The whole workflow —
+          data → filter → brief → email — collapses from hours to minutes.
+        </p>
+      </div>
+
+      <aside class="featured-sidebar">
+        <div class="sidebar-section">
+          <h5>Stack</h5>
+          <ul class="sidebar-list">
+            <li>→ Vanilla HTML / CSS / JS</li>
+            <li>→ PowerShell data pipeline</li>
+            <li>→ Local HTTP server</li>
+            <li>→ JSON-based data store</li>
+            <li>→ Markdown + HTML export</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Key features</h5>
+          <ul class="sidebar-list">
+            <li>→ Multi-source data merge</li>
+            <li>→ Smart filter-scoped exports</li>
+            <li>→ EOL/EOS lifecycle tracking</li>
+            <li>→ Confidence-rated sourcing</li>
+            <li>→ AI briefing generation</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Built with</h5>
+          <ul class="sidebar-list">
+            <li>→ Claude (architecture, code)</li>
+            <li>→ Claude (copy, briefs)</li>
+            <li>→ Iterative pair-building</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="featured-takeaway">
+      <strong>What it taught me</strong>
+      The sellers who win the next decade aren't the ones with the best CRM hygiene — they're
+      the ones who can turn public data into private advantage fast enough to matter. Building
+      this tool changed how I think about every account I touch.
+    </div>
+  </article>
+
+  <!-- CASE STUDY 02: IRONLOG -->
+  <article class="featured-case">
+    <div class="featured-badge">◆ Case Study 02</div>
+    <h3 class="featured-title">IronLog — A Workout Tracker, Built in the Browser</h3>
+    <div class="featured-context">
+      <span>Personal · Fitness</span>
+      <span>Progressive Web App</span>
+      <span>Single-file HTML · ~1,200 lines</span>
+      <span><a href="https://jayleone.ai/ironlog/" target="_blank" rel="noopener" class="live-link">↗ Live Site</a></span>
+    </div>
+
+    <div class="screenshot-gallery">
+      <figure class="phone-frame">
+        <img src="images/ironlog-workout.png" alt="IronLog Workout tab showing a Chest & Triceps session with Dumbbell Press — three sets at 180×8, 220×7, 180×2 — plus a yellow note reading Circuit workout with ab super sets.">
+        <figcaption class="phone-caption">
+          <strong>Workout</strong>
+          Live session with auto-populated last-session data
+        </figcaption>
+      </figure>
+
+      <figure class="phone-frame">
+        <img src="images/ironlog-insights.png" alt="IronLog Insights tab showing a Personal Records panel — Pull Down dual cable 90 lbs, Dumbbell Rows 90 lbs +5, Seated Wide Row 170 lbs +5, Cable Bicep Curl 33 lbs, Barbell Curl 95 lbs, Dumbbell Press 220 lbs, Incline Press Machine 185 lbs — flagged in green with PR markers.">
+        <figcaption class="phone-caption">
+          <strong>Insights</strong>
+          Client-side PR detection and progression analysis
+        </figcaption>
+      </figure>
+
+      <figure class="phone-frame">
+        <img src="images/ironlog-log.png" alt="IronLog Log tab showing lifetime stats — 20 total sessions, 3 this week, 293 total sets, 359.7K total volume — above a chronological history of training sessions.">
+        <figcaption class="phone-caption">
+          <strong>Log</strong>
+          Lifetime history — 20 sessions, 293 sets, 359.7K volume
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-body">
+        <h4>The problem</h4>
+        <p>
+          Existing fitness apps don't track the specific style of high-intensity training I follow —
+          minimal sets, maximal effort, careful tracking of progressive overload across a four-day
+          split. I also didn't want another account, another subscription, another app store
+          dependency. I wanted something I could open on my phone in the gym and trust to remember
+          everything.
+        </p>
+
+        <h4>What I built</h4>
+        <p>
+          A mobile-first <strong>Progressive Web App</strong> that runs entirely in the browser —
+          no backend, no app store, no account. It installs to the Android home screen from a
+          GitHub Pages URL and behaves like a native app. The full product includes a four-day
+          split tracker pre-loaded with specific exercises, a rest timer, a workout history log,
+          and an AI-powered insights engine — all in a single self-contained HTML file with
+          zero dependencies and zero build step.
+        </p>
+
+        <h4>The interesting technical challenges</h4>
+        <p>
+          <strong>Mobile storage reliability.</strong> The first version, opened from a file
+          manager, caused Android Chrome to treat each session as a new origin — wiping
+          localStorage every time. The fix was hosting at a stable URL. A seemingly trivial
+          problem that required understanding how mobile browsers actually scope storage.
+        </p>
+        <p>
+          <strong>Autosave and crash recovery.</strong> I kept losing workouts by forgetting to
+          tap "Finish." The fix was a dual-key storage architecture: completed sessions write to
+          one key, while an in-progress session continuously autosaves to a second key on every
+          input event. On page load, the app checks for orphaned autosaves, de-dupes against
+          completed sessions, and offers a one-tap recovery prompt if unfinished work is found.
+        </p>
+        <p>
+          <strong>Last-session pre-population.</strong> Rather than starting blank, every
+          workout pre-fills with the most recent session's exact weights, reps, and notes for
+          the same split — with the prior notes flagged in orange so they're impossible to miss
+          (visible in the Workout screenshot above). Required a clean history data model keyed
+          by split and exercise name.
+        </p>
+
+        <h4>The AI-native piece</h4>
+        <p>
+          The Insights engine runs entirely client-side with no API calls — detecting personal
+          records, flagging stalls, calculating volume trends, surfacing contextual coaching tips.
+          A separate <strong>"Analyze with Claude"</strong> button formats the full workout
+          history into a structured prompt, copies it to the clipboard, and opens Claude.ai —
+          giving deep on-demand analysis without requiring an API key in the app itself.
+          Cheap, simple, and surprisingly powerful.
+        </p>
+      </div>
+
+      <aside class="featured-sidebar">
+        <div class="sidebar-section">
+          <h5>Stack</h5>
+          <ul class="sidebar-list">
+            <li>→ Vanilla HTML / CSS / JS</li>
+            <li>→ CSS custom properties</li>
+            <li>→ localStorage persistence</li>
+            <li>→ GitHub Pages hosting</li>
+            <li>→ Zero dependencies</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Key features</h5>
+          <ul class="sidebar-list">
+            <li>→ PWA installable</li>
+            <li>→ Dual-key autosave</li>
+            <li>→ Session pre-population</li>
+            <li>→ Client-side insights</li>
+            <li>→ Claude handoff prompt</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Built with</h5>
+          <ul class="sidebar-list">
+            <li>→ Claude (full build)</li>
+            <li>→ Natural-language only</li>
+            <li>→ No manual coding</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="featured-takeaway">
+      <strong>What it taught me</strong>
+      The transferable skill isn't writing code with AI. It's <em>directing</em> it — describing
+      a real problem, evaluating the output, catching what's wrong, iterating. The autosave came
+      from actually losing data. The previous-notes feature came from a real training need. The
+      mobile hosting fix came from trying to use the app in the gym. Every meaningful product
+      decision started with friction I'd actually felt.
+    </div>
+  </article>
+
+  <!-- CASE STUDY 03: LEONE FAMILY ADVENTURE -->
+  <article class="featured-case">
+    <div class="featured-badge">◆ Case Study 03</div>
+    <h3 class="featured-title">The Leone Family Adventure — A Road Trip Companion</h3>
+    <div class="featured-context">
+      <span>Personal · Family</span>
+      <span>Real-time Web App</span>
+      <span>9 days · 3 states · 5 people</span>
+      <span><a href="https://roadtrip.jayleone.ai" target="_blank" rel="noopener" class="live-link">↗ Live Site</a></span>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-body">
+        <h4>The problem</h4>
+        <p>
+          Planning a 9-day family road trip across California, Arizona, and Utah meant juggling
+          itinerary, reservations, drive times, kids' attention spans, photo coordination across
+          five phones, and a partner who reasonably wanted to know where the Sprinter van was at
+          any given moment. Existing tools handled <em>parts</em> of that — but nothing handled
+          the whole job for a specific family on a specific trip with specific quirks.
+        </p>
+
+        <h4>What I built</h4>
+        <p>
+          A custom single-page web application — <strong>roadtrip.jayleone.ai</strong> — designed
+          to plan, navigate, and capture the trip as it happened. Five tabs: <strong>Schedule</strong>
+          (day-by-day itinerary with drive times, stops, reservations), <strong>Live Map</strong>
+          (real-time GPS tracking of the van pushed from my phone), <strong>Overview</strong>
+          (trip stats and big-picture context), <strong>Checklist</strong> (packing and
+          pre-departure tasks), and <strong>Photos</strong> (on-the-road uploads from everyone's
+          phones, pinned to locations). Designed to work seamlessly from the passenger seat of a
+          moving vehicle on spotty rural cell signal.
+        </p>
+
+        <h4>The interesting technical challenges</h4>
+        <p>
+          <strong>Live GPS tracking in a browser.</strong> Browsers aggressively sleep the
+          Geolocation API when a tab backgrounds or signal drops. After evaluating heavier
+          self-hosted solutions, I built a purpose-made <code>gps.html</code> page that stays
+          foregrounded, polls location on an interval, and writes coordinates directly to
+          Supabase. The Live Map tab renders the result with a moving van icon — so my wife and
+          kids could watch the van's progress in real time from the back seat.
+        </p>
+        <p>
+          <strong>Photo uploads under real conditions.</strong> Uploading from a moving vehicle
+          on bad 3G is its own discipline. I used direct-to-Supabase Storage uploads with
+          client-side compression and graceful retry behavior. Added per-photo delete controls
+          using event delegation on data attributes — critical after one family member uploaded
+          forty near-duplicates of the same canyon.
+        </p>
+        <p>
+          <strong>The auto-refresh bug that wiped uploads in progress.</strong> Early Photos tab
+          refreshed every 30 seconds to pull new images. Unfortunately, that also wiped the
+          in-progress file picker state mid-upload. Disabled auto-refresh on that tab specifically
+          and added a manual button. Small bug, large UX impact.
+        </p>
+        <p>
+          <strong>Offline-ish operation.</strong> Much of the route had no signal — Grand Canyon
+          rim, Zion back roads, long stretches of Utah. The app degrades gracefully: cached
+          itinerary, checklist works without backend, photos queue locally until reconnection.
+        </p>
+        <p>
+          <strong>Schedule reflow when delayed.</strong> If we left a stop late, the app
+          recalculated the day — surfacing how much time we'd lost, which downstream stops were
+          at risk, and what we might want to drop or shorten.
+        </p>
+
+        <h4>The AI-native piece</h4>
+        <p>
+          The whole app — frontend, backend integration, real-time sync, geolocation handling,
+          deployment scripts — was built through natural-language conversation with Claude.
+          What's noteworthy isn't that AI wrote the code. It's that the architecture decisions
+          (Supabase over self-hosting, dedicated GPS page over service workers, no auth over a
+          login system) all came from real tradeoffs I could reason about and Claude could
+          implement. The build felt less like coding and more like leading a very fast,
+          very competent contractor.
+        </p>
+      </div>
+
+      <aside class="featured-sidebar">
+        <div class="sidebar-section">
+          <h5>Stack</h5>
+          <ul class="sidebar-list">
+            <li>→ Vanilla HTML / CSS / JS</li>
+            <li>→ Supabase (Postgres)</li>
+            <li>→ Supabase Storage</li>
+            <li>→ Supabase Realtime</li>
+            <li>→ Geolocation API</li>
+            <li>→ GitHub Pages + custom domain</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Key features</h5>
+          <ul class="sidebar-list">
+            <li>→ 5-tab single-page app</li>
+            <li>→ Live GPS van tracking</li>
+            <li>→ Multi-user photo uploads</li>
+            <li>→ Location-pinned gallery</li>
+            <li>→ Schedule reflow on delay</li>
+            <li>→ Offline-tolerant design</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <h5>Built with</h5>
+          <ul class="sidebar-list">
+            <li>→ Claude (full build)</li>
+            <li>→ Iterative pair-building</li>
+            <li>→ Custom deploy script</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="featured-takeaway">
+      <strong>What it taught me</strong>
+      Most consumer software is built for a generic user and optimized for ad revenue. This one
+      was built for exactly five people, had zero ads, zero logins, and was tuned to the
+      realities of a specific van, a specific route, and specific phones. Building software for
+      a known audience of five is a different kind of fun than building for millions — and
+      it's the part of the AI-native shift most people haven't internalized yet. The economics
+      of "software built for one family" used to be zero. They aren't anymore.
+    </div>
+  </article>
+
+  <!-- REMAINING APPS -->
+  <div class="apps-grid">
+
+    <article class="app-card">
+      <div class="app-number">/ 04</div>
+      <h3 class="app-title">Family Memory Archive</h3>
+      <div class="app-context">Personal · Legacy</div>
+      <p class="app-desc">
+        A private app for preserving family stories, photos, and recordings — organized the
+        way memories actually work, not the way file systems do.
+        <em>[Case study in progress.]</em>
+      </p>
+      <div class="app-takeaway">
+        The most important software is often the quietest. Nobody's funding this — but my
+        family will use it for decades.
+      </div>
+    </article>
+
+    <article class="app-card">
+      <div class="app-number">/ 05</div>
+      <h3 class="app-title">Notes, Reimagined</h3>
+      <div class="app-context">Personal · Productivity</div>
+      <p class="app-desc">
+        A note-taking tool built around how I actually think during sales calls and customer
+        research — fast capture, AI-assisted synthesis, searchable by meaning.
+        <em>[Case study in progress.]</em>
+      </p>
+      <div class="app-takeaway">
+        The best notes app is the one that matches how your brain works. That's now something
+        you build in a weekend.
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="experience reveal" id="experience">
+  <div class="section-label">03 — Experience</div>
+  <h2 class="section-title">A career in <em>hard infrastructure</em>.</h2>
+
+  <div class="exp-list">
+    <div class="exp-row">
+      <div class="exp-year">Present</div>
+      <div>
+        <div class="exp-role">Senior Enterprise Account Executive</div>
+        <div class="exp-company">ExaGrid</div>
+      </div>
+      <div class="exp-note">
+        Leading enterprise data-protection strategy for California state agencies and
+        large commercial accounts. <em>[Swap in your real tenure and 1-line impact.]</em>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Prior</div>
+      <div>
+        <div class="exp-role">[Previous Role]</div>
+        <div class="exp-company">[Previous Company]</div>
+      </div>
+      <div class="exp-note">
+        <em>[One line about what you did and what you learned.]</em>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Prior</div>
+      <div>
+        <div class="exp-role">[Earlier Role]</div>
+        <div class="exp-company">[Earlier Company]</div>
+      </div>
+      <div class="exp-note">
+        <em>[One line.]</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="expertise reveal" id="expertise">
+  <div class="section-label">04 — Expertise</div>
+  <h2 class="section-title">What I've learned to do <em>well</em>.</h2>
+
+  <div class="expertise-grid">
+    <div class="expertise-item">
+      <div class="expertise-number">I</div>
+      <div class="expertise-title">Complex Enterprise Sales</div>
+      <div class="expertise-desc">
+        Multi-stakeholder deals, long cycles, public-sector and F500 procurement.
+        Comfortable in rooms with CIOs, procurement, legal, and security — often
+        at the same time.
+      </div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-number">II</div>
+      <div class="expertise-title">Data Infrastructure</div>
+      <div class="expertise-desc">
+        Backup, tiered storage, data protection, and increasingly — AI data pipelines.
+        Deep working knowledge of what it takes to move enterprise data safely.
+      </div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-number">III</div>
+      <div class="expertise-title">AI-Native Building</div>
+      <div class="expertise-desc">
+        Ship working software using Claude, Cursor, and modern agentic tools.
+        Front-end, back-end, deployment — enough to go from idea to production without
+        a team.
+      </div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-number">IV</div>
+      <div class="expertise-title">Customer Discovery</div>
+      <div class="expertise-desc">
+        Years of sitting across from decision-makers, learning what they actually need
+        versus what they said they wanted. Translates directly to product intuition.
+      </div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-number">V</div>
+      <div class="expertise-title">Technical Translation</div>
+      <div class="expertise-desc">
+        Taking complex infrastructure or AI concepts and making them land with
+        non-technical buyers — and vice versa. The bridge role matters more every year.
+      </div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-number">VI</div>
+      <div class="expertise-title">Deal Strategy &amp; Forecasting</div>
+      <div class="expertise-desc">
+        Quota-carrying discipline. Pipeline management. Forecast accuracy.
+        The unglamorous operational work that compounds into consistent performance.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div class="section-label">05 — Connect</div>
+  <h2 class="contact-title">Let's <em>talk</em>.</h2>
+  <p style="max-width: 50ch; font-size: 1.1rem;">
+    Happy to connect with fellow builders, operators, and sellers working at the
+    intersection of enterprise infrastructure and AI. If something here resonates —
+    reach out.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:jay@jayleone.ai" class="contact-link">Email</a>
+    <a href="https://linkedin.com/in/jayleone" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/jayleone" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Jay Leone · All rights reserved</div>
+  <div>Built with Claude · Handwritten in spare hours</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
