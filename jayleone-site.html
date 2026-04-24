@@ -3,622 +3,295 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jay Leone — Enterprise Technology Leader</title>
-<meta name="description" content="Jay Leone. Enterprise seller. AI-native builder. Based in California." />
+<title>Jay Leone — Enterprise Technology Sales · AI-Native Builder</title>
+<meta name="description" content="Two decades in enterprise infrastructure. Currently at ExaGrid. Building AI-native applications daily." />
 <meta name="theme-color" content="#0a0a0a" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Depth & surfaces */
     --bg-base: #0a0a0a;
     --bg-raised: #141414;
     --bg-elevated: #1a1a1a;
     --bg-inset: #080808;
-
-    /* Text hierarchy */
     --text-primary: #f5f2ec;
     --text-secondary: #b8b4aa;
     --text-muted: #6e6a62;
     --text-dim: #4a4640;
-
-    /* Rules & borders */
     --rule: #262624;
     --rule-strong: #333330;
-
-    /* Accents */
-    --accent: #e8a863;        /* warm amber — primary */
-    --accent-bright: #f5b878; /* hover / emphasis */
+    --accent: #e8a863;
+    --accent-bright: #f5b878;
     --accent-dim: rgba(232, 168, 99, 0.12);
     --accent-soft: rgba(232, 168, 99, 0.25);
-
-    --cool: #7aa7d9;          /* soft blue — secondary accent */
+    --cool: #7aa7d9;
     --cool-dim: rgba(122, 167, 217, 0.12);
-
-    /* Fonts */
     --serif: 'Fraunces', Georgia, serif;
     --sans: 'Inter Tight', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', 'Menlo', monospace;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; background: var(--bg-base); }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg-base);
-    color: var(--text-primary);
-    line-height: 1.6;
-    font-size: 17px;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-  }
-
-  /* Ambient gradient glow — subtle depth, not distracting */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 800px 600px at 85% 10%, rgba(232, 168, 99, 0.04), transparent 60%),
-      radial-gradient(ellipse 1000px 800px at 10% 90%, rgba(122, 167, 217, 0.03), transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Subtle noise layer for texture */
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 25% 35%, rgba(255,255,255,0.012) 0px, transparent 1px),
-      radial-gradient(circle at 65% 75%, rgba(255,255,255,0.008) 0px, transparent 1px);
-    background-size: 4px 4px, 6px 6px;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.5;
-  }
-
+  body { font-family: var(--sans); background: var(--bg-base); color: var(--text-primary); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 800px 600px at 85% 10%, rgba(232, 168, 99, 0.04), transparent 60%), radial-gradient(ellipse 1000px 800px at 10% 90%, rgba(122, 167, 217, 0.03), transparent 60%); pointer-events: none; z-index: 1; }
+  body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle at 25% 35%, rgba(255,255,255,0.012) 0px, transparent 1px), radial-gradient(circle at 65% 75%, rgba(255,255,255,0.008) 0px, transparent 1px); background-size: 4px 4px, 6px 6px; pointer-events: none; z-index: 1; opacity: 0.5; }
   a { color: inherit; text-decoration: none; }
 
-  /* ---------- NAV ---------- */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.25rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(10, 10, 10, 0.72);
-    backdrop-filter: blur(16px) saturate(120%);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease, background 0.3s ease;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.72); backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); border-bottom: 1px solid transparent; transition: border-color 0.3s ease, background 0.3s ease; }
   nav.scrolled { border-bottom-color: var(--rule); background: rgba(10, 10, 10, 0.88); }
-
-  .nav-logo {
-    font-family: var(--serif); font-weight: 500; font-size: 1.3rem;
-    letter-spacing: -0.02em; font-style: italic;
-    color: var(--text-primary);
-  }
-
-  .nav-links {
-    display: flex; gap: 2.25rem;
-    font-family: var(--mono); font-size: 0.78rem;
-    text-transform: uppercase; letter-spacing: 0.08em;
-  }
-  .nav-links a {
-    position: relative; padding: 0.25rem 0;
-    color: var(--text-secondary);
-    transition: color 0.2s ease;
-  }
+  .nav-logo { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: -0.02em; font-style: italic; color: var(--text-primary); }
+  .nav-links { display: flex; gap: 2.25rem; font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .nav-links a { position: relative; padding: 0.25rem 0; color: var(--text-secondary); transition: color 0.2s ease; }
   .nav-links a:hover { color: var(--accent); }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -2px; left: 0;
-    width: 0; height: 1px; background: var(--accent);
-    transition: width 0.3s ease;
-  }
+  .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
   .nav-links a:hover::after { width: 100%; }
 
-  /* ---------- HERO ---------- */
-  .hero {
-    min-height: 100vh; padding: 10rem 3rem 6rem;
-    position: relative; display: grid; grid-template-columns: 1fr;
-    align-items: center; max-width: 1400px; margin: 0 auto; z-index: 2;
-  }
-
-  .hero-meta {
-    font-family: var(--mono); font-size: 0.75rem;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--text-muted); margin-bottom: 2rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .hero-meta::before {
-    content: ''; width: 24px; height: 1px;
-    background: var(--accent);
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 8vw, 7.5rem);
-    font-weight: 400; line-height: 0.95; letter-spacing: -0.035em;
-    margin-bottom: 2.5rem; max-width: 16ch;
-    color: var(--text-primary);
-  }
-  .hero h1 em {
-    font-style: italic; color: var(--accent); font-weight: 400;
-  }
-
-  .hero-sub {
-    font-size: 1.25rem; max-width: 42ch;
-    color: var(--text-secondary);
-    line-height: 1.55; font-weight: 400;
-  }
+  .hero { min-height: 100vh; padding: 10rem 3rem 6rem; position: relative; display: grid; grid-template-columns: 1fr; align-items: center; max-width: 1400px; margin: 0 auto; z-index: 2; }
+  .hero-meta { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-meta::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 { font-family: var(--serif); font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 400; line-height: 0.95; letter-spacing: -0.035em; margin-bottom: 2.5rem; max-width: 16ch; color: var(--text-primary); }
+  .hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .hero-sub { font-size: 1.25rem; max-width: 44ch; color: var(--text-secondary); line-height: 1.55; font-weight: 400; }
   .hero-sub strong { color: var(--text-primary); font-weight: 500; }
+  .hero-scroll { position: absolute; bottom: 2rem; right: 3rem; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); writing-mode: vertical-rl; transform: rotate(180deg); }
 
-  .hero-scroll {
-    position: absolute; bottom: 2rem; right: 3rem;
-    font-family: var(--mono); font-size: 0.7rem;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--text-muted);
-    writing-mode: vertical-rl; transform: rotate(180deg);
-  }
-
-  /* ---------- SECTION STRUCTURE ---------- */
-  section {
-    padding: 7rem 3rem; max-width: 1400px; margin: 0 auto;
-    position: relative; z-index: 2;
-  }
-
-  .section-label {
-    font-family: var(--mono); font-size: 0.72rem;
-    text-transform: uppercase; letter-spacing: 0.2em;
-    color: var(--text-muted); margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .section-label::before {
-    content: ''; width: 24px; height: 1px; background: var(--accent);
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
-    font-weight: 400; line-height: 1.05; letter-spacing: -0.02em;
-    margin-bottom: 3.5rem; max-width: 20ch;
-    color: var(--text-primary);
-  }
+  section { padding: 7rem 3rem; max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+  .section-label { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 3.5rem; max-width: 22ch; color: var(--text-primary); }
   .section-title em { font-style: italic; color: var(--accent); }
 
-  /* ---------- ABOUT ---------- */
   .about { border-top: 1px solid var(--rule); }
-
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1.5fr;
-    gap: 5rem; align-items: start;
-  }
-
-  .about-body p {
-    font-size: 1.1rem; margin-bottom: 1.5rem;
-    color: var(--text-secondary); line-height: 1.65;
-  }
-
-  .about-body p:first-child {
-    font-size: 1.3rem; color: var(--text-primary);
-    font-family: var(--serif); font-weight: 400;
-    line-height: 1.45; letter-spacing: -0.01em;
-  }
-
-  .about-body p:first-child::first-letter {
-    font-size: 3.5rem; font-weight: 500;
-    float: left; line-height: 0.9;
-    padding: 0.5rem 0.6rem 0 0;
-    color: var(--accent); font-style: italic;
-  }
-
+  .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .about-body p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.65; }
+  .about-body p:first-child { font-size: 1.3rem; color: var(--text-primary); font-family: var(--serif); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; }
+  .about-body p:first-child::first-letter { font-size: 3.5rem; font-weight: 500; float: left; line-height: 0.9; padding: 0.5rem 0.6rem 0 0; color: var(--accent); font-style: italic; }
   .about-body em { color: var(--text-primary); font-style: italic; }
+  .about-body strong { color: var(--text-primary); font-weight: 500; }
 
-  /* ---------- PRACTICE ---------- */
-  .practice { border-top: 1px solid var(--rule); }
-
-  .practice-intro {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; margin-bottom: 5rem; align-items: start;
+  /* Highlight strip below the about prose */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
   }
-
-  .practice-intro p {
-    font-size: 1.05rem; color: var(--text-secondary);
-    margin-bottom: 1.25rem;
-  }
-  .practice-intro p:last-child { margin-bottom: 0; }
-
-  .practice-stats {
-    display: flex; flex-direction: column; gap: 1.5rem;
-    padding-left: 2rem; border-left: 1px solid var(--rule);
-  }
-
-  .stat-line {
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-family: var(--mono); font-size: 0.82rem;
-    padding-bottom: 1rem; border-bottom: 1px dashed var(--rule);
-  }
-  .stat-line:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .stat-label {
-    text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);
-  }
-  .stat-value {
-    font-family: var(--serif); font-size: 1.4rem;
-    color: var(--accent); font-weight: 500;
-  }
-
-  /* ---------- FEATURED CASE STUDY ---------- */
-  .featured-case {
-    background: var(--bg-raised);
-    border: 1px solid var(--rule);
-    padding: 3.5rem; margin-bottom: 3rem;
-    position: relative; overflow: hidden;
-    transition: border-color 0.3s ease;
-  }
-  .featured-case:hover { border-color: var(--rule-strong); }
-  .featured-case::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: linear-gradient(180deg, var(--accent), rgba(232, 168, 99, 0.3));
-  }
-
-  .featured-badge {
-    display: inline-block;
-    font-family: var(--mono); font-size: 0.7rem;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-soft);
-    padding: 0.35rem 0.75rem; border-radius: 2px;
-    margin-bottom: 1.5rem;
-  }
-
-  .featured-title {
-    font-family: var(--serif);
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 500; letter-spacing: -0.02em;
-    margin-bottom: 0.5rem; line-height: 1.1;
-    color: var(--text-primary);
-  }
-
-  .featured-context {
-    font-family: var(--mono); font-size: 0.78rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--text-muted); margin-bottom: 2rem;
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-  .featured-context span { position: relative; padding-right: 1rem; }
-  .featured-context span:not(:last-child)::after {
-    content: '·'; position: absolute; right: 0; color: var(--rule-strong);
-  }
-
-  /* SCREENSHOT GALLERY */
-  .screenshot-gallery {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    margin: 1rem 0 2.5rem; padding: 2.25rem 1rem;
-    background:
-      radial-gradient(ellipse 80% 70% at 50% 50%, rgba(232, 168, 99, 0.05), transparent 70%),
-      var(--bg-inset);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-  }
-  .phone-frame {
-    position: relative;
-    padding: 8px;
-    background: linear-gradient(145deg, #2a2a28, #1a1a18);
-    border-radius: 28px;
-    border: 1px solid var(--rule-strong);
-    box-shadow:
-      0 8px 40px rgba(0, 0, 0, 0.5),
-      0 2px 8px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
-  }
-  .phone-frame:hover {
-    transform: translateY(-6px);
-    box-shadow:
-      0 16px 60px rgba(0, 0, 0, 0.6),
-      0 4px 12px rgba(232, 168, 99, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  }
-  .phone-frame img {
-    display: block; width: 100%; height: auto;
-    border-radius: 20px;
-  }
-  .phone-caption {
-    font-family: var(--mono); font-size: 0.7rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--text-muted); text-align: center;
-    margin-top: 1rem;
-  }
-  .phone-caption strong {
-    color: var(--accent); font-weight: 500;
-    display: block; margin-bottom: 0.2rem; font-size: 0.72rem;
-  }
-
-  .featured-grid {
-    display: grid; grid-template-columns: 1.4fr 1fr;
-    gap: 3rem; margin-top: 2rem;
-  }
-
-  .featured-body h4 {
+  .highlight-item h4 {
     font-family: var(--mono); font-size: 0.72rem;
     text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--accent);
-    margin-bottom: 0.75rem; margin-top: 1.75rem;
+    color: var(--accent); margin-bottom: 0.75rem;
   }
-  .featured-body h4:first-child { margin-top: 0; }
+  .highlight-item p {
+    font-size: 0.92rem; color: var(--text-secondary);
+    line-height: 1.55;
+  }
 
-  .featured-body p {
-    color: var(--text-secondary); margin-bottom: 1rem;
-    font-size: 1rem; line-height: 1.65;
-  }
+  .practice { border-top: 1px solid var(--rule); }
+  .practice-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 5rem; align-items: start; }
+  .practice-intro p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+  .practice-intro p:last-child { margin-bottom: 0; }
+  .practice-stats { display: flex; flex-direction: column; gap: 1.5rem; padding-left: 2rem; border-left: 1px solid var(--rule); }
+  .stat-line { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 0.82rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--rule); }
+  .stat-line:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-label { text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .stat-value { font-family: var(--serif); font-size: 1.4rem; color: var(--accent); font-weight: 500; }
+
+  .featured-case { background: var(--bg-raised); border: 1px solid var(--rule); padding: 3.5rem; margin-bottom: 3rem; position: relative; overflow: hidden; transition: border-color 0.3s ease; }
+  .featured-case:hover { border-color: var(--rule-strong); }
+  .featured-case::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, var(--accent), rgba(232, 168, 99, 0.3)); }
+  .featured-badge { display: inline-block; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent-soft); padding: 0.35rem 0.75rem; border-radius: 2px; margin-bottom: 1.5rem; }
+  .featured-title { font-family: var(--serif); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.1; color: var(--text-primary); }
+  .featured-context { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .featured-context span { position: relative; padding-right: 1rem; }
+  .featured-context span:not(:last-child)::after { content: '·'; position: absolute; right: 0; color: var(--rule-strong); }
+
+  .screenshot-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 1rem 0 2.5rem; padding: 2.25rem 1rem; background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(232, 168, 99, 0.05), transparent 70%), var(--bg-inset); border: 1px solid var(--rule); border-radius: 4px; }
+  .phone-frame { position: relative; padding: 8px; background: linear-gradient(145deg, #2a2a28, #1a1a18); border-radius: 28px; border: 1px solid var(--rule-strong); box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s; }
+  .phone-frame:hover { transform: translateY(-6px); box-shadow: 0 16px 60px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(232, 168, 99, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06); }
+  .phone-frame img { display: block; width: 100%; height: auto; border-radius: 20px; }
+  .phone-caption { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); text-align: center; margin-top: 1rem; }
+  .phone-caption strong { color: var(--accent); font-weight: 500; display: block; margin-bottom: 0.2rem; font-size: 0.72rem; }
+
+  .featured-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; margin-top: 2rem; }
+  .featured-body h4 { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.75rem; margin-top: 1.75rem; }
+  .featured-body h4:first-child { margin-top: 0; }
+  .featured-body p { color: var(--text-secondary); margin-bottom: 1rem; font-size: 1rem; line-height: 1.65; }
   .featured-body p:last-child { margin-bottom: 0; }
   .featured-body strong { color: var(--text-primary); font-weight: 500; }
   .featured-body em { color: var(--text-primary); font-style: italic; }
-  .featured-body a {
-    color: var(--cool);
-    border-bottom: 1px dotted var(--cool);
-  }
+  .featured-body a { color: var(--cool); border-bottom: 1px dotted var(--cool); }
   .featured-body a:hover { border-bottom-style: solid; }
-  .featured-body code {
-    font-family: var(--mono); font-size: 0.9em;
-    background: var(--bg-elevated);
-    border: 1px solid var(--rule);
-    padding: 0.1em 0.45em;
-    border-radius: 3px;
-    color: var(--accent-bright);
-  }
-
-  .featured-sidebar {
-    background: var(--bg-inset);
-    border: 1px solid var(--rule);
-    padding: 1.75rem; align-self: start;
-  }
-
+  .featured-body code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-elevated); border: 1px solid var(--rule); padding: 0.1em 0.45em; border-radius: 3px; color: var(--accent-bright); }
+  .featured-sidebar { background: var(--bg-inset); border: 1px solid var(--rule); padding: 1.75rem; align-self: start; }
   .sidebar-section { margin-bottom: 1.75rem; }
   .sidebar-section:last-child { margin-bottom: 0; }
-
-  .sidebar-section h5 {
-    font-family: var(--mono); font-size: 0.7rem;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem; padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
+  .sidebar-section h5 { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
   .sidebar-list { list-style: none; padding: 0; }
-  .sidebar-list li {
-    font-family: var(--mono); font-size: 0.82rem;
-    color: var(--text-secondary); padding: 0.3rem 0; line-height: 1.4;
-  }
-  .sidebar-list li::first-letter { color: var(--accent); }
-
-  .featured-takeaway {
-    margin-top: 2.5rem; padding: 1.75rem 2rem;
-    background:
-      linear-gradient(135deg, rgba(232, 168, 99, 0.05), transparent 70%),
-      var(--bg-inset);
-    border-left: 3px solid var(--accent);
-    font-family: var(--serif); font-style: italic;
-    font-size: 1.1rem; line-height: 1.55;
-    color: var(--text-primary);
-  }
-
-  .featured-takeaway strong {
-    font-family: var(--sans); font-style: normal; font-weight: 500;
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--accent); display: block; margin-bottom: 0.75rem;
-  }
+  .sidebar-list li { font-family: var(--mono); font-size: 0.82rem; color: var(--text-secondary); padding: 0.3rem 0; line-height: 1.4; }
+  .featured-takeaway { margin-top: 2.5rem; padding: 1.75rem 2rem; background: linear-gradient(135deg, rgba(232, 168, 99, 0.05), transparent 70%), var(--bg-inset); border-left: 3px solid var(--accent); font-family: var(--serif); font-style: italic; font-size: 1.1rem; line-height: 1.55; color: var(--text-primary); }
+  .featured-takeaway strong { font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); display: block; margin-bottom: 0.75rem; }
   .featured-takeaway em { color: var(--accent); font-style: italic; }
-
-  .live-link {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    margin-left: 0.5rem; padding: 0.2rem 0.6rem;
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-soft) !important;
-    border-radius: 2px;
-    color: var(--accent) !important;
-    font-family: var(--mono); font-size: 0.72rem;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    transition: background 0.2s ease;
-  }
+  .live-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: 0.5rem; padding: 0.2rem 0.6rem; background: var(--accent-dim); border: 1px solid var(--accent-soft) !important; border-radius: 2px; color: var(--accent) !important; font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s ease; }
   .live-link:hover { background: var(--accent-soft); }
 
-  /* ---------- APP CARDS ---------- */
-  .apps-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
-  }
+  .apps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .app-card { background: var(--bg-raised); border: 1px solid var(--rule); padding: 2.5rem; position: relative; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, background 0.3s; overflow: hidden; }
+  .app-card:hover { transform: translateY(-4px); border-color: var(--accent-soft); background: var(--bg-elevated); }
+  .app-card::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.4s ease; }
+  .app-card:hover::before { height: 100%; }
+  .app-number { font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.15em; margin-bottom: 1rem; }
+  .app-title { font-family: var(--serif); font-size: 1.65rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.15; color: var(--text-primary); }
+  .app-context { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1.5rem; }
+  .app-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.6; }
+  .app-takeaway { padding-top: 1.5rem; border-top: 1px solid var(--rule); font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: var(--text-primary); line-height: 1.5; }
+  .app-takeaway::before { content: '→ '; color: var(--accent); font-style: normal; font-weight: 500; }
+  .app-card a.app-link { color: var(--accent); border-bottom: 1px dotted var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+  .app-card a.app-link:hover { border-bottom-style: solid; }
 
-  .app-card {
+  /* CLIENTS */
+  .clients { border-top: 1px solid var(--rule); }
+  .clients-grid {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  .client-pill {
+    font-family: var(--mono); font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 0.55rem 1.1rem;
     background: var(--bg-raised);
     border: 1px solid var(--rule);
-    padding: 2.5rem; position: relative;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, background 0.3s;
-    overflow: hidden;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
   }
-  .app-card:hover {
-    transform: translateY(-4px);
+  .client-pill:hover {
     border-color: var(--accent-soft);
+    color: var(--accent);
     background: var(--bg-elevated);
   }
-  .app-card::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 2px; height: 0; background: var(--accent);
-    transition: height 0.4s ease;
-  }
-  .app-card:hover::before { height: 100%; }
 
-  .app-number {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--text-muted); letter-spacing: 0.15em;
-    margin-bottom: 1rem;
-  }
-
-  .app-title {
-    font-family: var(--serif); font-size: 1.65rem; font-weight: 500;
-    letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.15;
-    color: var(--text-primary);
-  }
-
-  .app-context {
-    font-family: var(--mono); font-size: 0.75rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    color: var(--accent); margin-bottom: 1.5rem;
-  }
-
-  .app-desc {
-    color: var(--text-secondary); font-size: 0.95rem;
-    margin-bottom: 1.75rem; line-height: 1.6;
-  }
-  .app-desc em { color: var(--text-muted); }
-
-  .app-takeaway {
-    padding-top: 1.5rem; border-top: 1px solid var(--rule);
-    font-family: var(--serif); font-style: italic;
-    font-size: 0.98rem; color: var(--text-primary); line-height: 1.5;
-  }
-  .app-takeaway::before {
-    content: '→ '; color: var(--accent);
-    font-style: normal; font-weight: 500;
-  }
-
-  /* ---------- EXPERIENCE ---------- */
+  /* EXPERIENCE TIMELINE */
   .experience { border-top: 1px solid var(--rule); }
-  .exp-list { display: flex; flex-direction: column; }
-
-  .exp-row {
-    display: grid; grid-template-columns: 120px 1fr 1fr;
-    gap: 3rem; padding: 2rem 0;
+  .timeline {
+    display: flex; flex-direction: column;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 2.25rem 0;
     border-bottom: 1px solid var(--rule);
-    align-items: baseline; transition: padding-left 0.3s ease;
+    align-items: start;
+    transition: padding-left 0.3s ease;
   }
-  .exp-row:hover { padding-left: 1rem; }
-
-  .exp-year {
-    font-family: var(--mono); font-size: 0.82rem;
-    color: var(--accent); letter-spacing: 0.05em;
+  .timeline-item:hover { padding-left: 1rem; }
+  .timeline-left {
+    display: flex; flex-direction: column;
+    gap: 0.4rem;
   }
-
-  .exp-role {
-    font-family: var(--serif); font-size: 1.4rem; font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--text-primary);
-  }
-
-  .exp-company {
-    display: block; font-family: var(--sans);
-    font-size: 0.9rem; font-weight: 400; color: var(--text-muted);
-    margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.08em;
-  }
-
-  .exp-note {
-    color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;
-  }
-  .exp-note em { color: var(--text-muted); font-style: italic; }
-
-  /* ---------- EXPERTISE ---------- */
-  .expertise { border-top: 1px solid var(--rule); }
-  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-
-  .expertise-item { display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .expertise-number {
-    font-family: var(--serif); font-size: 2.5rem; font-style: italic;
-    color: var(--accent); line-height: 1; margin-bottom: 0.5rem;
-  }
-
-  .expertise-title {
+  .timeline-company {
     font-family: var(--serif); font-size: 1.3rem; font-weight: 500;
-    letter-spacing: -0.01em; margin-bottom: 0.25rem;
-    color: var(--text-primary);
+    color: var(--text-primary); letter-spacing: -0.01em;
+    line-height: 1.2;
   }
-
-  .expertise-desc {
-    color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5;
-  }
-
-  /* ---------- CONTACT ---------- */
-  .contact {
-    border-top: 1px solid var(--rule);
-    padding: 9rem 3rem; text-align: left;
-    max-width: 1400px; margin: 0 auto;
-  }
-
-  .contact-title {
-    font-family: var(--serif);
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 400; line-height: 1; letter-spacing: -0.03em;
-    margin-bottom: 2rem; max-width: 14ch;
-    color: var(--text-primary);
-  }
-  .contact-title em { font-style: italic; color: var(--accent); }
-
-  .contact p { color: var(--text-secondary); }
-
-  .contact-links {
-    display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2rem;
-  }
-
-  .contact-link {
-    font-family: var(--mono); font-size: 0.88rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    padding-bottom: 0.5rem;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--text-primary);
-    transition: color 0.25s ease, border-color 0.25s ease;
-  }
-  .contact-link:hover {
-    color: var(--accent); border-bottom-color: var(--accent);
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer {
-    border-top: 1px solid var(--rule);
-    padding: 2rem 3rem; max-width: 1400px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
+  .timeline-period {
     font-family: var(--mono); font-size: 0.72rem;
-    color: var(--text-muted);
     text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .timeline-right h3 {
+    font-family: var(--sans); font-size: 1.05rem; font-weight: 500;
+    color: var(--text-primary); margin-bottom: 0.65rem;
+    letter-spacing: -0.005em;
+  }
+  .timeline-right p {
+    color: var(--text-secondary); font-size: 0.95rem;
+    line-height: 1.6; margin-bottom: 0.85rem;
+  }
+  .timeline-badges {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .timeline-badge {
+    font-family: var(--mono); font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    background: var(--bg-elevated);
+    border: 1px solid var(--rule);
+    padding: 0.25rem 0.65rem;
+    border-radius: 2px;
   }
 
-  /* ---------- RESPONSIVE ---------- */
+  /* EXPERTISE */
+  .expertise { border-top: 1px solid var(--rule); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .expertise-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .expertise-card:hover {
+    border-color: var(--accent-soft);
+    transform: translateY(-3px);
+  }
+  .expertise-card h3 {
+    font-family: var(--serif); font-size: 1.3rem; font-weight: 500;
+    letter-spacing: -0.01em; margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+  .expertise-card p {
+    color: var(--text-secondary); font-size: 0.92rem;
+    line-height: 1.55; margin-bottom: 1.25rem;
+  }
+  .expertise-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+  .tag {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-soft);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+  }
+
+  /* CONTACT */
+  .contact { border-top: 1px solid var(--rule); padding: 9rem 3rem; text-align: left; max-width: 1400px; margin: 0 auto; }
+  .contact-title { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1; letter-spacing: -0.03em; margin-bottom: 2rem; max-width: 14ch; color: var(--text-primary); }
+  .contact-title em { font-style: italic; color: var(--accent); }
+  .contact p { color: var(--text-secondary); }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 2.5rem; margin-top: 2rem; }
+  .contact-link { font-family: var(--mono); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.1em; padding-bottom: 0.5rem; color: var(--text-primary); border-bottom: 1px solid var(--text-primary); transition: color 0.25s ease, border-color 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  footer { border-top: 1px solid var(--rule); padding: 2rem 3rem; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero, section, .contact, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
     .hero { padding-top: 7rem; padding-bottom: 3rem; }
     section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
-    .about-grid, .practice-intro, .expertise-grid, .apps-grid, .featured-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid, .practice-intro, .expertise-grid, .apps-grid, .featured-grid, .highlights { grid-template-columns: 1fr; gap: 2.5rem; }
     .practice-stats { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 2rem; }
     .featured-case { padding: 2rem; }
     .screenshot-gallery { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem 1rem; }
     .phone-frame { max-width: 280px; margin: 0 auto; }
-    .exp-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem 0; }
-    .exp-year { font-size: 0.75rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.75rem 0; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 
-  /* ---------- REVEAL ---------- */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-
   .hero h1 { animation: fadeUp 1.1s ease forwards; opacity: 0; }
   .hero-meta { animation: fadeUp 0.9s ease 0.1s forwards; opacity: 0; }
   .hero-sub { animation: fadeUp 1s ease 0.3s forwards; opacity: 0; }
   .hero-scroll { animation: fadeUp 1s ease 0.6s forwards; opacity: 0; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Selection */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   ::selection { background: var(--accent-soft); color: var(--text-primary); }
 </style>
 </head>
@@ -637,12 +310,12 @@
 
 <header class="hero">
   <div>
-    <div class="hero-meta">Enterprise Sales · AI-Native Builder · California</div>
-    <h1>Selling what I <em>can build</em>. Building what I want to <em>sell</em>.</h1>
+    <div class="hero-meta">Enterprise Sales · AI-Native Builder · Greater Sacramento</div>
+    <h1>Two decades of <em>infrastructure</em>. A new decade of <em>building</em>.</h1>
     <p class="hero-sub">
-      I lead enterprise sales at <strong>ExaGrid</strong>. On nights and weekends,
-      I ship functional AI-native applications — for my work, for my family, for myself.
-      The two habits reinforce each other.
+      I sell enterprise data infrastructure at <strong>ExaGrid</strong>, where I lead Northern
+      California's SLED and enterprise territory. On nights and weekends, I ship working
+      AI-native software — the same problem-solving instinct, applied to a different medium.
     </p>
   </div>
   <div class="hero-scroll">Scroll ↓</div>
@@ -650,28 +323,48 @@
 
 <section class="about reveal" id="about">
   <div class="section-label">01 — About</div>
-  <h2 class="section-title">An enterprise seller who <em>actually builds</em>.</h2>
+  <h2 class="section-title">Where technical depth meets <em>executive presence</em>.</h2>
   <div class="about-grid">
     <div></div>
     <div class="about-body">
       <p>
-        Most sellers talk about AI. Fewer have shipped six working applications with it this year.
-        I'm in the second camp — not because I'm becoming an engineer, but because building is the
-        fastest way I know to understand what's actually possible in a customer's environment.
+        I've spent over two decades at the intersection of enterprise technology and strategic
+        sales — building relationships with CIOs, CTOs, CFOs, and procurement leaders at
+        organizations ranging from <strong>Apple, Netflix, and Cisco</strong> to state government
+        agencies and public universities.
       </p>
       <p>
-        My day job is closing complex infrastructure deals at ExaGrid, where I work with
-        California state agencies and large enterprise accounts on tiered storage and data
-        protection strategy. My after-hours work is shipping small, useful software — a sales
-        intelligence dashboard, a workout tracker, a road-trip companion app for my family,
-        a note-taking tool. Different domains; same instinct: see a real problem, build something
-        that addresses it, ship it.
+        What sets me apart is a decade I spent on <em>the other side of the table</em>. As an
+        enterprise technology buyer and infrastructure architect at Avaya, I evaluated, selected,
+        and negotiated multi-million-dollar infrastructure investments. I directed three datacenter
+        build-outs and managed multiple $1M+ projects. I know what buying committees look for,
+        what kills deals, and what earns lasting trust.
       </p>
       <p>
-        The point isn't the apps. The point is what they prove about how fast the gap has
-        closed between <em>seeing a problem</em> and <em>having a working solution</em>.
-        Understanding that shift first-hand is — increasingly — the job.
+        I combine that buyer-side empathy with a relentless drive for results — consistently
+        achieving 150–200% of quota — and an early, deep adoption of AI tools that gives me
+        measurable productivity advantages in research, pipeline development, and executive
+        communication. The portfolio below shows what that looks like in practice.
       </p>
+    </div>
+  </div>
+
+  <div class="highlights">
+    <div class="highlight-item">
+      <h4>◆ Buyer-Side Credibility</h4>
+      <p>10 years as an enterprise technology buyer at Avaya — evaluating vendors, running RFPs, managing $1M+ infrastructure projects. I sell the way customers want to buy.</p>
+    </div>
+    <div class="highlight-item">
+      <h4>◆ SLED &amp; Public Sector</h4>
+      <p>Deep knowledge of government procurement vehicles — CMAS, ETC, SIR, NASPO — and FedRAMP/StateRAMP compliance navigation in regulated environments.</p>
+    </div>
+    <div class="highlight-item">
+      <h4>◆ AI-Augmented Execution</h4>
+      <p>Daily practitioner of Claude, GPT, and Gemini — integrated into prospecting, account research, proposal generation, and competitive intelligence workflows.</p>
+    </div>
+    <div class="highlight-item">
+      <h4>◆ Methodology-Driven</h4>
+      <p>MEDDPIC/MEDDPICC certified. Challenger Sale, Value Selling, and Consultative Selling frameworks applied to complex multi-stakeholder enterprise cycles.</p>
     </div>
   </div>
 </section>
@@ -686,7 +379,7 @@
         I use AI the way a carpenter uses power tools — constantly, competently, and without
         ceremony. Claude, Claude Code, and Cursor are open most hours of most days. I use them
         to draft customer communications, research accounts, model deal strategy, and build the
-        pieces of software that used to be impossible for someone in my role to build alone.
+        software that used to be impossible for someone in my role to build alone.
       </p>
       <p>
         What's changed is the last part. The work below isn't demos. It's working tools I
@@ -696,7 +389,7 @@
     <div class="practice-stats">
       <div class="stat-line">
         <span class="stat-label">Apps shipped</span>
-        <span class="stat-value">6+</span>
+        <span class="stat-value">5+</span>
       </div>
       <div class="stat-line">
         <span class="stat-label">Stack</span>
@@ -825,7 +518,7 @@
       </figure>
 
       <figure class="phone-frame">
-        <img src="images/ironlog-insights.png" alt="IronLog Insights tab showing a Personal Records panel — Pull Down dual cable 90 lbs, Dumbbell Rows 90 lbs +5, Seated Wide Row 170 lbs +5, Cable Bicep Curl 33 lbs, Barbell Curl 95 lbs, Dumbbell Press 220 lbs, Incline Press Machine 185 lbs — flagged in green with PR markers.">
+        <img src="images/ironlog-insights.png" alt="IronLog Insights tab showing a Personal Records panel with multiple lifts flagged in green with PR markers.">
         <figcaption class="phone-caption">
           <strong>Insights</strong>
           Client-side PR detection and progression analysis
@@ -833,7 +526,7 @@
       </figure>
 
       <figure class="phone-frame">
-        <img src="images/ironlog-log.png" alt="IronLog Log tab showing lifetime stats — 20 total sessions, 3 this week, 293 total sets, 359.7K total volume — above a chronological history of training sessions.">
+        <img src="images/ironlog-log.png" alt="IronLog Log tab showing lifetime stats — 20 total sessions, 3 this week, 293 total sets, 359.7K total volume.">
         <figcaption class="phone-caption">
           <strong>Log</strong>
           Lifetime history — 20 sessions, 293 sets, 359.7K volume
@@ -950,7 +643,7 @@
 
     <div class="screenshot-gallery">
       <figure class="phone-frame">
-        <img src="images/roadtrip-schedule.png" alt="Roadtrip Schedule view showing Day 1 of 8 — El Dorado Hills to Paso Robles — with a Leave by 7:00 AM callout, Arrive Paso Robles ~11:30 AM, Open in Google Maps link, a Running late? Tap to recalculate button marked On Track, and trip stats: 265 miles, ~4h drive, arriving ~11:30 AM. Below, a stop-by-stop timeline: Depart El Dorado Hills at 7:00 AM, Gas + Break at Coalinga at 9:00 AM.">
+        <img src="images/roadtrip-schedule.png" alt="Roadtrip Schedule view showing Day 1 of 8 — El Dorado Hills to Paso Robles — with leave time, arrival estimate, recalculate button, and trip stats.">
         <figcaption class="phone-caption">
           <strong>Schedule</strong>
           Day-by-day plan with live recalculation when delayed
@@ -958,7 +651,7 @@
       </figure>
 
       <figure class="phone-frame">
-        <img src="images/roadtrip-livemap.png" alt="Roadtrip Live Map view showing a Live GPS syncs across all devices panel, a Start Sharing My Location button, and a live-updating map of the route traced across California, Nevada, Utah, and Arizona — with eight numbered trip stops pinned from El Dorado Hills through Las Vegas, the Grand Canyon, Zion, Capitol Reef, and back to Pismo Beach.">
+        <img src="images/roadtrip-livemap.png" alt="Roadtrip Live Map view showing eight numbered trip stops pinned across California, Nevada, Utah, and Arizona.">
         <figcaption class="phone-caption">
           <strong>Live Map</strong>
           Real-time van tracking synced across the family's phones
@@ -966,7 +659,7 @@
       </figure>
 
       <figure class="phone-frame">
-        <img src="images/roadtrip-checklist.png" alt="Roadtrip Checklist view with sections for Park Pass (Every Kid Outdoors voucher obtained, print voucher on paper), Hotels — All Booked (six reservations from Paso Robles to Pismo Beach across March 30 through April 5), and a Before You Leave section beginning below. Each item has a checkbox and syncs to the cloud instantly.">
+        <img src="images/roadtrip-checklist.png" alt="Roadtrip Checklist view with park pass, hotel reservations, and pre-departure tasks.">
         <figcaption class="phone-caption">
           <strong>Checklist</strong>
           Park passes, six booked hotels, pre-departure tasks
@@ -1088,21 +781,24 @@
     </div>
   </article>
 
-  <!-- REMAINING APPS -->
+  <!-- LIGHTER PROJECTS -->
   <div class="apps-grid">
 
     <article class="app-card">
       <div class="app-number">/ 04</div>
-      <h3 class="app-title">Family Memory Archive</h3>
-      <div class="app-context">Personal · Legacy</div>
+      <h3 class="app-title">Furgone Avventura</h3>
+      <div class="app-context">Side Venture · Live Business</div>
       <p class="app-desc">
-        A private app for preserving family stories, photos, and recordings — organized the
-        way memories actually work, not the way file systems do.
-        <em>[Case study in progress.]</em>
+        A premium van rental business — a custom 2019 Mercedes-Benz Sprinter 4×4 listed on
+        Turo for families, golf groups, and adventure travelers. The booking website was
+        designed and built end-to-end with Claude as the primary development partner.
+        Same van, incidentally, that powered the Leone Family Adventure trip above.
+        <br><br>
+        <a href="https://jayleone75.github.io/furgone-avventura" target="_blank" rel="noopener" class="app-link">↗ furgone-avventura</a>
       </p>
       <div class="app-takeaway">
-        The most important software is often the quietest. Nobody's funding this — but my
-        family will use it for decades.
+        Real customers, real bookings, real revenue — built by a sales guy with Claude.
+        This is what AI-to-production looks like.
       </div>
     </article>
 
@@ -1124,122 +820,279 @@
   </div>
 </section>
 
-<section class="experience reveal" id="experience">
-  <div class="section-label">03 — Experience</div>
-  <h2 class="section-title">A career in <em>hard infrastructure</em>.</h2>
-
-  <div class="exp-list">
-    <div class="exp-row">
-      <div class="exp-year">Present</div>
-      <div>
-        <div class="exp-role">Senior Enterprise Account Executive</div>
-        <div class="exp-company">ExaGrid</div>
-      </div>
-      <div class="exp-note">
-        Leading enterprise data-protection strategy for California state agencies and
-        large commercial accounts. <em>[Swap in your real tenure and 1-line impact.]</em>
-      </div>
-    </div>
-
-    <div class="exp-row">
-      <div class="exp-year">Prior</div>
-      <div>
-        <div class="exp-role">[Previous Role]</div>
-        <div class="exp-company">[Previous Company]</div>
-      </div>
-      <div class="exp-note">
-        <em>[One line about what you did and what you learned.]</em>
-      </div>
-    </div>
-
-    <div class="exp-row">
-      <div class="exp-year">Prior</div>
-      <div>
-        <div class="exp-role">[Earlier Role]</div>
-        <div class="exp-company">[Earlier Company]</div>
-      </div>
-      <div class="exp-note">
-        <em>[One line.]</em>
-      </div>
-    </div>
+<!-- CLIENTS -->
+<section class="clients reveal" id="clients">
+  <div class="section-label">03 — Selected Clients</div>
+  <h2 class="section-title">The companies that shape <em>the industry</em>.</h2>
+  <p style="max-width: 60ch; color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2rem;">
+    A partial list of enterprise accounts engaged across two decades — from Fortune 500
+    technology companies to large public-sector organizations.
+  </p>
+  <div class="clients-grid">
+    <span class="client-pill">Apple</span>
+    <span class="client-pill">Netflix</span>
+    <span class="client-pill">Cisco</span>
+    <span class="client-pill">Intel</span>
+    <span class="client-pill">Siemens</span>
+    <span class="client-pill">Autodesk</span>
+    <span class="client-pill">Dropbox</span>
+    <span class="client-pill">GE Digital</span>
+    <span class="client-pill">Verizon Wireless</span>
+    <span class="client-pill">VMware</span>
+    <span class="client-pill">Salesforce</span>
+    <span class="client-pill">Starbucks</span>
+    <span class="client-pill">StubHub / eBay</span>
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section class="experience reveal" id="experience">
+  <div class="section-label">04 — Career Timeline</div>
+  <h2 class="section-title">Two decades of <em>consistent performance</em>.</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">ExaGrid Systems</div>
+        <div class="timeline-period">Jan 2025 — Present</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Territory Sales Manager — Enterprise &amp; Public Sector</h3>
+        <p>Lead strategic new-business acquisition across Northern California SLED and enterprise accounts. Engage CIOs, infrastructure directors, and security stakeholders in architecture-led, value-based sales conversations. Navigate complex public-sector procurement via CMAS, ETC, and SIR contract vehicles. Leverage AI/LLM tools daily for prospect research, competitive analysis, meeting preparation, and proposal generation.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">Northern CA Territory</span>
+          <span class="timeline-badge">SLED Focus</span>
+          <span class="timeline-badge">AI-Augmented Workflows</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri (DDN)</div>
+        <div class="timeline-period">Mar 2021 — Jan 2025</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Strategic Enterprise Account Executive</h3>
+        <p>Exceeded $5M–$7M annual quota by 150%, 180%, and 200% over three consecutive years across Fortune 500 technology accounts. Drove net-new logo acquisition while expanding revenue within strategic accounts including Siemens, Autodesk, Apple, Cisco, Dropbox, Netflix, GE Digital, and Intel. Displaced incumbent platforms (NetApp, Pure Storage, Dell EMC) with compelling ROI/TCO business cases.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">150–200% Quota</span>
+          <span class="timeline-badge">Fortune 500 Accounts</span>
+          <span class="timeline-badge">Platform Displacement</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri</div>
+        <div class="timeline-period">Jan 2020 — Mar 2021</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Senior Director, Strategic Alliances &amp; Partnerships</h3>
+        <p>Spearheaded strategic alliance and partnership initiatives across Tintri's technology ecosystem. Built co-sell programs and joint go-to-market motions with complementary infrastructure vendors. Championed AIOps-driven datacenter vision by aligning with technology partners that enhanced Tintri's product offering and expanded cross-portfolio addressability.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">Alliance Building</span>
+          <span class="timeline-badge">Co-Sell GTM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri</div>
+        <div class="timeline-period">Dec 2018 — Jan 2020</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Western Area Sales Director</h3>
+        <p>Led a team of regional sales representatives and systems engineers, driving a 25% year-over-year revenue increase to $20M annual run rate across the Western U.S. Developed territory acquisition strategies focused on net-new logo growth. Championed channel partner success through joint account mapping, co-marketing, and technical training.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">$20M ARR</span>
+          <span class="timeline-badge">+25% YoY Growth</span>
+          <span class="timeline-badge">Team Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri</div>
+        <div class="timeline-period">Sep 2017 — Dec 2018</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Senior Director, Systems Engineering — Americas &amp; Federal</h3>
+        <p>Led and mentored a team of 40 Systems Engineers supporting enterprise, Federal, and SLED sales cycles across the Americas. Implemented CHAMP/MEDDPIC-aligned qualification and POC frameworks, increasing win rates and shortening deal cycles. Developed comprehensive playbooks for Cloud, DevOps, VDI, Data Protection, and DR use cases.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">40-Person SE Team</span>
+          <span class="timeline-badge">Federal &amp; SLED</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri</div>
+        <div class="timeline-period">Dec 2014 — Sep 2017</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Western Area Director, Systems Engineering</h3>
+        <p>Led a high-performing team of 10 senior sales engineers supporting enterprise and strategic accounts across the Western U.S. Achieved recognition as the top revenue-generating region company-wide, consistently surpassing aggressive financial goals. Forged strategic alignment between engineering and sales to drive substantial revenue growth.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">#1 Region Nationwide</span>
+          <span class="timeline-badge">10-Person SE Team</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Tintri</div>
+        <div class="timeline-period">Apr 2013 — Dec 2014</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Senior Sales Engineer</h3>
+        <p>Lead pre-sales engineer in the Western U.S., conducting technical discovery, product demonstrations, POC deployments, and systems installations for enterprise accounts. Applied BANT and MEDDPIC qualification criteria to ensure strategic opportunity management and high conversion rates.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Oracle</div>
+        <div class="timeline-period">Nov 2012 — Apr 2013</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Principal Sales Consultant — Enterprise Accounts</h3>
+        <p>Supported Oracle's enterprise sales teams selling platform and infrastructure solutions into large commercial and public-sector organizations. Specialized in datacenter fabrics, virtualization, storage, and database strategies. Architected custom datacenter fabric and storage solutions for Oracle's top-tier clients.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Xsigo Systems / Oracle</div>
+        <div class="timeline-period">Jan 2011 — Nov 2012</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Solutions Architect — Enterprise Infrastructure Platforms</h3>
+        <p>Partnered with Senior Sales Executives to drive virtualized I/O and infrastructure solution sales across Telecom, Healthcare, SaaS, and Corporate IT verticals. Targeted key accounts including Autodesk, Verizon Wireless, StubHub/eBay, VMware, and Salesforce.com. Specialized in datacenter fabric consolidation and storage connectivity optimization.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-company">Avaya</div>
+        <div class="timeline-period">Apr 2001 — Feb 2011</div>
+      </div>
+      <div class="timeline-right">
+        <h3>Lab Manager / Senior Infrastructure Engineer</h3>
+        <p>Enterprise technology buyer and infrastructure architect responsible for evaluating, selecting, and procuring datacenter infrastructure across multiple Avaya sites. Directed end-to-end design and build-out of three enterprise-class datacenters (two domestic, one international). Achieved 90% reduction in datacenter footprint and 50% reduction in operating costs through virtualization strategy. Managed multiple $1M+ infrastructure projects on time and within budget.</p>
+        <div class="timeline-badges">
+          <span class="timeline-badge">Enterprise Buyer</span>
+          <span class="timeline-badge">3 Datacenter Build-Outs</span>
+          <span class="timeline-badge">90% Footprint Reduction</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERTISE -->
 <section class="expertise reveal" id="expertise">
-  <div class="section-label">04 — Expertise</div>
-  <h2 class="section-title">What I've learned to do <em>well</em>.</h2>
+  <div class="section-label">05 — Core Capabilities</div>
+  <h2 class="section-title">Built for complex, <em>high-stakes</em> enterprise sales.</h2>
 
   <div class="expertise-grid">
-    <div class="expertise-item">
-      <div class="expertise-number">I</div>
-      <div class="expertise-title">Complex Enterprise Sales</div>
-      <div class="expertise-desc">
-        Multi-stakeholder deals, long cycles, public-sector and F500 procurement.
-        Comfortable in rooms with CIOs, procurement, legal, and security — often
-        at the same time.
+    <div class="expertise-card">
+      <h3>C-Suite Engagement</h3>
+      <p>Comfortable and credible in boardrooms with CIOs, CTOs, and CFOs. Translates technical value into executive outcomes — risk reduction, cost optimization, competitive advantage.</p>
+      <div class="expertise-tags">
+        <span class="tag">CIO/CTO/CFO</span>
+        <span class="tag">Executive Briefings</span>
+        <span class="tag">QBRs</span>
+        <span class="tag">ROI/TCO</span>
       </div>
     </div>
-    <div class="expertise-item">
-      <div class="expertise-number">II</div>
-      <div class="expertise-title">Data Infrastructure</div>
-      <div class="expertise-desc">
-        Backup, tiered storage, data protection, and increasingly — AI data pipelines.
-        Deep working knowledge of what it takes to move enterprise data safely.
+
+    <div class="expertise-card">
+      <h3>SLED &amp; Public Sector</h3>
+      <p>Expert navigation of state, local, and education procurement. Fluent in CMAS, ETC, SIR, NASPO, and other cooperative contract vehicles. FedRAMP/StateRAMP compliance awareness.</p>
+      <div class="expertise-tags">
+        <span class="tag">CMAS</span>
+        <span class="tag">ETC</span>
+        <span class="tag">SIR</span>
+        <span class="tag">FedRAMP</span>
+        <span class="tag">NASPO</span>
       </div>
     </div>
-    <div class="expertise-item">
-      <div class="expertise-number">III</div>
-      <div class="expertise-title">AI-Native Building</div>
-      <div class="expertise-desc">
-        Ship working software using Claude, Cursor, and modern agentic tools.
-        Front-end, back-end, deployment — enough to go from idea to production without
-        a team.
+
+    <div class="expertise-card">
+      <h3>Pipeline Development</h3>
+      <p>Disciplined, multi-channel outbound strategy combining LinkedIn Sales Navigator, AI-powered research, targeted messaging, and warm introductions to build consistent territory pipeline.</p>
+      <div class="expertise-tags">
+        <span class="tag">MEDDPIC</span>
+        <span class="tag">Salesforce</span>
+        <span class="tag">HubSpot</span>
+        <span class="tag">Clari</span>
       </div>
     </div>
-    <div class="expertise-item">
-      <div class="expertise-number">IV</div>
-      <div class="expertise-title">Customer Discovery</div>
-      <div class="expertise-desc">
-        Years of sitting across from decision-makers, learning what they actually need
-        versus what they said they wanted. Translates directly to product intuition.
+
+    <div class="expertise-card">
+      <h3>Channel &amp; Partner Ecosystem</h3>
+      <p>Expert in indirect channel models — daily co-sell with VARs, distributors, and OEM partners. Joint account mapping, partner enablement, and co-marketing to amplify territory coverage.</p>
+      <div class="expertise-tags">
+        <span class="tag">VAR Co-Sell</span>
+        <span class="tag">OEM Partnerships</span>
+        <span class="tag">SI Ecosystem</span>
       </div>
     </div>
-    <div class="expertise-item">
-      <div class="expertise-number">V</div>
-      <div class="expertise-title">Technical Translation</div>
-      <div class="expertise-desc">
-        Taking complex infrastructure or AI concepts and making them land with
-        non-technical buyers — and vice versa. The bridge role matters more every year.
+
+    <div class="expertise-card">
+      <h3>Enterprise Infrastructure</h3>
+      <p>Deep technical fluency in storage, compute, networking, virtualization, and data protection. Guides customers through datacenter modernization, cloud-hybrid transitions, and AI-readiness planning.</p>
+      <div class="expertise-tags">
+        <span class="tag">NVMe / NVMe-oF</span>
+        <span class="tag">VMware</span>
+        <span class="tag">Data Protection</span>
+        <span class="tag">HCI</span>
       </div>
     </div>
-    <div class="expertise-item">
-      <div class="expertise-number">VI</div>
-      <div class="expertise-title">Deal Strategy &amp; Forecasting</div>
-      <div class="expertise-desc">
-        Quota-carrying discipline. Pipeline management. Forecast accuracy.
-        The unglamorous operational work that compounds into consistent performance.
+
+    <div class="expertise-card">
+      <h3>Platform Displacement</h3>
+      <p>Proven track record displacing incumbent solutions from NetApp, Pure Storage, Dell EMC, Cohesity, Rubrik, and Commvault with compelling ROI-driven narratives and competitive positioning.</p>
+      <div class="expertise-tags">
+        <span class="tag">Competitive Analysis</span>
+        <span class="tag">TCO Modeling</span>
+        <span class="tag">Challenger Sale</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact reveal" id="contact">
-  <div class="section-label">05 — Connect</div>
+  <div class="section-label">06 — Connect</div>
   <h2 class="contact-title">Let's <em>talk</em>.</h2>
   <p style="max-width: 50ch; font-size: 1.1rem;">
-    Happy to connect with fellow builders, operators, and sellers working at the
-    intersection of enterprise infrastructure and AI. If something here resonates —
-    reach out.
+    Whether it's a business opportunity, a collaboration, or just a shared interest in
+    enterprise technology and AI — I'm always open to a good conversation.
   </p>
   <div class="contact-links">
-    <a href="mailto:jay@jayleone.ai" class="contact-link">Email</a>
-    <a href="https://linkedin.com/in/jayleone" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/jayleone" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:mail@jayleone.com" class="contact-link">
+      Email
+    </a>
+    <a href="https://linkedin.com/in/jaymleone" target="_blank" rel="noopener" class="contact-link">
+      LinkedIn
+    </a>
+    <a href="https://jayleone75.github.io/furgone-avventura" target="_blank" rel="noopener" class="contact-link">
+      Furgone Avventura
+    </a>
   </div>
 </section>
 
 <footer>
-  <div>© 2026 Jay Leone · All rights reserved</div>
+  <div>© 2026 Jay Leone · Greater Sacramento, CA</div>
   <div>Built with Claude · Handwritten in spare hours</div>
 </footer>
 
