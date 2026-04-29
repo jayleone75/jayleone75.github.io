@@ -64,6 +64,59 @@
 
   .about { border-top: 1px solid var(--rule); }
   .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+
+  /* About — left column: portrait + stat panel */
+  .about-portrait {
+    display: flex; flex-direction: column;
+    gap: 2.5rem;
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+  }
+  .portrait-frame {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+  .portrait-frame img {
+    display: block; width: 100%; height: auto;
+    filter: saturate(0.92) contrast(1.02);
+  }
+  .portrait-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 10, 0.18) 100%);
+    pointer-events: none;
+  }
+  .about-stats {
+    display: flex; flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .about-stat {
+    display: flex; flex-direction: column;
+    gap: 0.2rem;
+  }
+  .about-stat-value {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .about-stat-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
   .about-body p { font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.65; }
   .about-body p:first-child { font-size: 1.3rem; color: var(--text-primary); font-family: var(--serif); font-weight: 400; line-height: 1.45; letter-spacing: -0.01em; }
   .about-body p:first-child::first-letter { font-size: 3.5rem; font-weight: 500; float: left; line-height: 0.9; padding: 0.5rem 0.6rem 0 0; color: var(--accent); font-style: italic; }
@@ -287,6 +340,7 @@
     .hero { padding-top: 7rem; padding-bottom: 3rem; }
     section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
     .about-grid, .practice-intro, .expertise-grid, .apps-grid, .featured-grid, .highlights { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-portrait { position: static; max-width: 320px; margin: 0 auto; }
     .practice-stats { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 2rem; }
     .featured-case { padding: 2rem; }
     .screenshot-gallery { grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem 1rem; }
@@ -337,7 +391,29 @@
   <div class="section-label">01 — About</div>
   <h2 class="section-title">Where technical depth meets <em>executive presence</em>.</h2>
   <div class="about-grid">
-    <div></div>
+    <div class="about-portrait">
+      <figure class="portrait-frame">
+        <img src="images/jay-headshot.jpg" alt="Jay Leone, standing in an office, wearing a charcoal vest over a light blue button-down — looking directly at the camera.">
+      </figure>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-value">24 yrs</div>
+          <div class="about-stat-label">Enterprise Infrastructure</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-value">150–200%</div>
+          <div class="about-stat-label">Quota Attainment</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-value">10 yrs</div>
+          <div class="about-stat-label">Buyer-side at Avaya</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-value">5+ apps</div>
+          <div class="about-stat-label">Shipped 2024–2026</div>
+        </div>
+      </div>
+    </div>
     <div class="about-body">
       <p>
         I've spent over two decades at the intersection of enterprise technology and strategic
