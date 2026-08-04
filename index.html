@@ -394,7 +394,7 @@
     <h1>Two decades of <em>infrastructure</em>. A new decade of <em>building</em>.</h1>
     <p class="hero-sub">
       I sell enterprise data infrastructure at <strong>ExaGrid</strong>, where I lead Northern
-      California's SLED and enterprise territory. On nights and weekends, I ship working
+      California's SLED and enterprise territory. I also design and ship working
       AI-native software — the same problem-solving instinct, applied to a different medium.
     </p>
   </div>
@@ -447,7 +447,8 @@
         achieving 150–200% of quota — and an early, deep adoption of AI tools that gives me
         measurable productivity advantages in research, pipeline development, and executive
         communication. The portfolio below shows what that looks like in practice — a
-        procurement intelligence dashboard for my territory, a workout tracker I use daily,
+        procurement intelligence platform tracking $17.2B in California state IT spend, a
+        workout tracker I use daily,
         a real-time road trip companion app, a personal family archive built by browser
         automation, and a live van rental business.
       </p>
@@ -513,7 +514,7 @@
 
   <!-- CASE JUMP BAR -->
   <nav class="case-jump" aria-label="Jump to a project">
-    <a href="#case-01"><span class="cj-num">01</span><span class="cj-label">Procurement Intel</span></a>
+    <a href="#case-01"><span class="cj-num">01</span><span class="cj-label">Procurement Intelligence</span></a>
     <a href="#case-02"><span class="cj-num">02</span><span class="cj-label">IronLog</span></a>
     <a href="#case-03"><span class="cj-num">03</span><span class="cj-label">Road Trip App</span></a>
     <a href="#case-04"><span class="cj-num">04</span><span class="cj-label">Travelogue</span></a>
@@ -525,81 +526,110 @@
   <!-- CASE STUDY 01: CA PROCUREMENT -->
   <article class="featured-case" id="case-01">
     <div class="featured-badge">◆ Case Study 01</div>
-    <h3 class="featured-title">Public-Sector Procurement Intelligence Dashboard</h3>
+    <h3 class="featured-title">California Procurement Intelligence</h3>
     <div class="featured-context">
-      <span>Enterprise Sales Tool</span>
-      <span>HTML / JS / PowerShell</span>
-      <span>~450 records mapped</span>
+      <span>Productized Service</span>
+      <span>Python / SQLite / Flask / Anthropic API</span>
+      <span>56,294 purchase orders · $17.2B tracked</span>
     </div>
 
     <div class="featured-grid">
       <div class="featured-body">
         <h4>The problem</h4>
         <p>
-          California publishes state-agency procurement data, but it lives scattered across
-          separate spreadsheets — one per vendor, with inconsistent schemas, mixed statuses,
-          and no way to see the same department's buying pattern across competitors. For a
-          seller working that territory, the data was technically public and practically unusable.
+          Any vendor or reseller selling infrastructure into a state agency wants to know three
+          things: what does this department already own, when does it come up for renewal, and
+          who currently sells to them. California publishes the data that answers all three, and
+          none of it is usable as shipped. Two incompatible export formats arrive under the same
+          file extension. There is no product taxonomy. Contract terms are buried in free-text
+          line descriptions. The same supplier is spelled three different ways in one file.
         </p>
 
         <h4>What I built</h4>
         <p>
-          A single-page dashboard that ingests four competitor spreadsheets, normalizes them
-          into a unified JSON dataset, and renders a live filterable view of the combined market.
-          <strong>Keyword search</strong> across items, suppliers, buyers, departments, and POs.
-          <strong>Faceted filters</strong> for source, status, department, and supplier.
-          <strong>Live summary metrics</strong> for spend, deal size, and active/closed mix.
-          <strong>Rollup panels</strong> for top suppliers, top departments, and source distribution.
+          A pipeline and web application that ingests the raw state exports, reconciles them into
+          one schema with full provenance, classifies every purchase into a product taxonomy,
+          overlays contract-renewal timing and statewide reseller authorizations, and generates
+          client-ready account briefs. Currently <strong>56,294 purchase orders, 244,749 line
+          items, and $17.16B in spend across nine California departments</strong> — Technology,
+          Transportation, Corrections, Motor Vehicles, Employment Development, State Hospitals,
+          Public Health, Developmental Services, and Consumer Affairs.
+        </p>
+        <p>
+          It is not built for one territory or one manufacturer. The taxonomy, the lifecycle
+          overlay, and the brief generation all generalize — every state, county, and large
+          municipality publishes procurement data with exactly the same characteristics.
         </p>
 
-        <h4>The interesting part</h4>
+        <h4>The decision that mattered</h4>
         <p>
-          The dashboard was the easy half. The harder problem was turning data into action — so
-          I layered an <strong>intelligence engine</strong> on top: a curated lifecycle dataset
-          of product SKUs with end-of-support dates, confidence tiers, and source URLs.
-          Past-EOS hardware now surfaces automatically as the top prospecting angle, with
-          specific model names, PO counts, and dates — and the tool exports a <strong>ready-to-use
-          briefing document</strong> in Markdown or styled HTML that feeds directly into Claude
-          for draft emails, partner briefs, and account strategy.
+          I ran an LLM pass to improve product descriptions, then measured it instead of assuming
+          it helped. <strong>7,575 enriched rows carried only 681 distinct texts, and 74% of rows
+          had dropped a model number or SKU that was in the original.</strong> I killed the
+          approach, salvaged the one component that worked, and documented the negative result so
+          it would not be tried again.
+        </p>
+        <p>
+          That set the architectural rule the whole system runs on: <strong>the pipeline works with
+          zero AI calls.</strong> Ingest, normalization, joins, ranking, and aggregation are ordinary
+          deterministic code. The model is confined to turning already-correct structured output
+          into prose. The brief generator makes two model calls and neither one produces a number.
         </p>
 
-        <h4>The AI-native piece</h4>
+        <h4>Where it came from, and where it goes</h4>
         <p>
-          This is where the tool stops being a dashboard and starts being a genuine force
-          multiplier. The brief export is designed as a <em>prompt payload</em> — structured
-          so I can paste it into Claude with one line of intent ("draft a prospecting email to
-          this buyer") and get a useful first draft in seconds. The whole workflow —
-          data → filter → brief → email — collapses from hours to minutes.
+          Version one was a 450-record HTML dashboard I built for my own territory. This is what it
+          became once the question changed from <em>what do I need</em> to <em>what would a vendor
+          pay for</em>. Today it is a repeatable service for hand-producing account briefs.
+          Next is multi-tenancy, once paying clients need it — the architecture has been built
+          toward that migration without paying for it early.
+        </p>
+        <p>
+          <a href="procurement-intelligence.html">Read the full engineering breakdown →</a>
+          <br><span style="font-size:0.9rem;color:var(--text-muted)">Five things in the data that were not what they looked like, the deterministic/model split, and the honest limits.</span>
         </p>
       </div>
 
       <aside class="featured-sidebar">
         <div class="sidebar-section">
+          <h5>Scale</h5>
+          <ul class="sidebar-list">
+            <li>→ 56,294 purchase orders</li>
+            <li>→ 244,749 line items</li>
+            <li>→ $17.16B tracked spend</li>
+            <li>→ 3,845 suppliers</li>
+            <li>→ 9 departments</li>
+            <li>→ 94 statewide awards</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
           <h5>Stack</h5>
           <ul class="sidebar-list">
-            <li>→ Vanilla HTML / CSS / JS</li>
-            <li>→ PowerShell data pipeline</li>
-            <li>→ Local HTTP server</li>
-            <li>→ JSON-based data store</li>
-            <li>→ Markdown + HTML export</li>
+            <li>→ Python / pandas</li>
+            <li>→ SQLite</li>
+            <li>→ Flask, 9 functional areas</li>
+            <li>→ Anthropic API, tool use</li>
+            <li>→ Streaming + prompt caching</li>
+            <li>→ ~9,400 lines, 12 modules</li>
           </ul>
         </div>
         <div class="sidebar-section">
-          <h5>Key features</h5>
+          <h5>Results</h5>
           <ul class="sidebar-list">
-            <li>→ Multi-source data merge</li>
-            <li>→ Smart filter-scoped exports</li>
-            <li>→ EOL/EOS lifecycle tracking</li>
-            <li>→ Confidence-rated sourcing</li>
-            <li>→ AI briefing generation</li>
+            <li>→ $55.7M renewal signal recovered</li>
+            <li>→ Unclassified 18.6% → 7.0%</li>
+            <li>→ 91% of orders skip paid inference</li>
+            <li>→ $0.03 per generated brief</li>
+            <li>→ $105.6M overstatement caught</li>
           </ul>
         </div>
         <div class="sidebar-section">
-          <h5>Built with</h5>
+          <h5>How it was built</h5>
           <ul class="sidebar-list">
-            <li>→ Claude (architecture, code)</li>
-            <li>→ Claude (copy, briefs)</li>
-            <li>→ Iterative pair-building</li>
+            <li>→ Architected end to end</li>
+            <li>→ Every design call mine</li>
+            <li>→ Implementation directed</li>
+            <li>→ via Claude Code</li>
           </ul>
         </div>
       </aside>
@@ -607,9 +637,9 @@
 
     <div class="featured-takeaway">
       <strong>What it taught me</strong>
-      The sellers who win the next decade aren't the ones with the best CRM hygiene — they're
-      the ones who can turn public data into private advantage fast enough to matter. Building
-      this tool changed how I think about every account I touch.
+      Building with AI well is mostly knowing where <em>not</em> to use it. The valuable skill is
+      telling which part of a problem is deterministic and which genuinely needs a model — and
+      then measuring the difference instead of assuming it.
     </div>
   </article>
 
@@ -1626,7 +1656,7 @@
 
 <footer>
   <div>© 2026 Jay Leone · Greater Sacramento, CA</div>
-  <div>Built with Claude · Handwritten in spare hours</div>
+  <div>Designed and built with Claude</div>
 </footer>
 
 <script>
